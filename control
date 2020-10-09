@@ -1,0 +1,10 @@
+Package: us.sudhip.apod
+Name: HSNasaAPOD
+Depends: mobilesubstrate, com.dgh0st.hswidgets
+Version: 1.0
+Architecture: iphoneos-arm
+Description: HS NASA APOD right on your homescreen! NOTE: The icon for this widget was NOT made by me. Please go to https://ftp.sudhip.com/jbrepo/assets/hsnasaapod.png.credit.html for more information.
+Maintainer: Sudhip Nashi
+Author: Sudhip Nashi
+Icon: http://ftp.sudhip.com/jbrepo/assets/hsnasaapod.png
+Section: Addons (HSWidgets)

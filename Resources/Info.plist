@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>us.sudhip.apod</string>
+	<key>NSPrincipalClass</key>
+	<string>HSNasaPictureOfTheDayViewController</string>
+	<key>HSWidgetDisplayName</key>
+	<string>NASA APOD</string>
+	<key>HSWidgetIcon</key>
+	<string>icon.png</string>
+	<key>HSWidgetCreator</key>
+	<string>Sudhip Nashi</string>
+	<key>HSWidgetPreferencesControllerClass</key>
+	<string>HSNasaPictureOfTheDayPreferencesViewController</string>
+	<key>HSWidgetIcon</key>
+	<string>icon.png</string>
+</dict>
+</plist>
