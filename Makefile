@@ -1,5 +1,8 @@
+rmpackage: clean
+	rm -rf packages
+
 INSTALL_TARGET_PROCESSES = SpringBoard
-export TARGET = iphone:13.3:13.0
+export TARGET = iphone:13.0:13.0
 include $(THEOS)/makefiles/common.mk
 
 ARCHS = arm64 arm64e
