@@ -163,11 +163,29 @@ static NSDictionary* apidict = nil;
 -(NSURL*)getCurrentAPOD {
 
 	NSDictionary* dict = [self getAPODJson]; 
+	NSURL* imageURL;
+
 	if (dict == nil) {
 		return nil;
 	}
 
-	NSURL* imageURL = [NSURL URLWithString:[dict objectForKey:@"url"]];
+	if ([widgetOptions [@"hdEnabled"] boolValue]) {
+
+		if ([dict objectForKey:@"hdurl"] != nil) {
+			imageURL = [NSURL URLWithString:[dict objectForKey:@"hdurl"]];
+			Log("Taking hdurl\n");
+		}
+
+		else {
+			imageURL = [NSURL URLWithString:[dict objectForKey:@"url"]];
+		}
+
+	}
+
+	else {
+		imageURL = [NSURL URLWithString:[dict objectForKey:@"url"]];
+	}
+
 	date = [[NSString alloc] initWithString:[dict objectForKey:@"date"]];
 
 	if ([[dict objectForKey:@"media_type"] isEqualToString:@"video"]) {
