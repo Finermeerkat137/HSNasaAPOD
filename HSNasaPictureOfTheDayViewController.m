@@ -34,15 +34,16 @@ static NSDictionary* apidict = nil;
 		imgurl = [self getCurrentAPOD];
 		Log([[imgurl absoluteString] UTF8String]);
 		Log("\nIhavebeeninvoked\n");
+		
 		if (imgurl == nil) {
-			goto gVDL;
 			Log("\nnullimgurl\n");
 		}
 
-		[self getImage: imgurl];
+		else {
+			[self getImage: imgurl];
+		}
 	}
 
-	gVDL:
 	lockVar = 0;
 	self.square.layer.cornerRadius = 20;
 	self.square.layer.masksToBounds = YES;
@@ -57,17 +58,13 @@ static NSDictionary* apidict = nil;
 -(void)updateImage {
 
 	if ([self checkIfUp: [NSURL URLWithString:@"http://nasa.gov"]] == TRUE) {
-        if (lockVar == 0) {
-	        if ([self hasAPODChanged] == TRUE) {
-	        	NSURL* imgurl = [self getCurrentAPOD];
-	            if (imgurl == nil) {
-	                    goto gVWI;
-				}
-                [self getImage: imgurl];
-        	}
+        if ((lockVar == 0) && ([self hasAPODChanged] == TRUE)) {
+	        NSURL* imgurl = [self getCurrentAPOD];
+			if (imgurl != nil) {
+	            [self getImage: imgurl];
+			}
 	    }
     }
-    gVWI:
 	Log("Timer did run\n");
 }
 
