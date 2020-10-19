@@ -90,7 +90,7 @@ static NSDictionary* apidict = nil;
 
 -(BOOL)checkIfUp:(NSURL*)URL {
 
-	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL: URL];
+	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:4];
 	[request setHTTPMethod: @"HEAD"];
 	NSURLResponse* response;
 	NSError* error;
