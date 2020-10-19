@@ -49,7 +49,7 @@ static NSDictionary* apidict = nil;
 	self.square.contentMode = UIViewContentModeScaleAspectFill;
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRecieveNotification:) name:@"sendNotificationToApod" object:nil];
-	[NSTimer scheduledTimerWithTimeInterval:7200.0 target:self selector:@selector(updateImage) userInfo:nil repeats:YES];
+	//[NSTimer scheduledTimerWithTimeInterval:7200.0 target:self selector:@selector(updateImage) userInfo:nil repeats:YES];
 	
 	Log("View did load\n");
 }
