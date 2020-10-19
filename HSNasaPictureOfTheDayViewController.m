@@ -1,7 +1,6 @@
 #import "HSNasaPictureOfTheDayViewController.h"
 #import "cutils.h"
 #define log Log
-//dg0vjqJhIswap6PZVsr4ycpKLxlY5mfbvQFy4P49
 
 static NSString* apiKey = nil;
 NSString* date = nil;

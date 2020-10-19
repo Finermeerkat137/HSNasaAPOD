@@ -43,7 +43,6 @@ UIWindow* topWindow = nil;
 	[continueButton.layer setCornerRadius:17];
 	[moreInfoController.buttonTray addButton:continueButton];	
 
-	//[moreInfoController.buttonTray addCaptionText:@"Thank you for using this tutorial on how to use an OBWelcomeView."];
 	moreInfoController.modalPresentationStyle = UIModalPresentationPageSheet;
 	moreInfoController.modalInPresentation = YES;
 	moreInfoController.view.tintColor = [UIColor systemBlueColor];
