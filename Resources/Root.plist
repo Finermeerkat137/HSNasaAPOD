@@ -9,7 +9,7 @@
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>label</key>
-			<string>API Key - Respring/LDRestart to take effect</string>
+			<string>Respring/LDRestart to take effect</string>
 		</dict>
 
 		<dict>
@@ -25,16 +25,20 @@
 
 		<dict>
 			<key>cell</key>
-			<string>PSGroupCell</string>
-		</dict>
-
-		<dict>
-			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>key</key>
 			<string>hdEnabled</string>
 			<key>label</key>
 			<string>Enable HD Downloads</string>
+		</dict>
+
+		<dict>
+			<key>action</key>
+			<string>sendNotification</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Refresh View</string>
 		</dict>
 
 		<dict>
@@ -54,26 +58,14 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-		</dict>
-
-		<dict>
-			<key>action</key>
-			<string>sendNotification</string>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Refresh View</string>
-		</dict>
-
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
 			<key>footerText</key>
-			<string>2020 Ⓒ sunflsks. These images are not mine</string>
+			<string>2020 Ⓒ sunflsks</string>
+			<key>footerAlignment</key>
+			<string>1</string>
 		</dict>
 
 	</array>
 	<key>title</key>
-	<string>NASA APOD Widget</string>
+	<string>HSNasaAPOD</string>
 </dict>
 </plist>
