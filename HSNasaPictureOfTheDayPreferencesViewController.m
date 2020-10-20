@@ -53,7 +53,7 @@ UIWindow* topWindow = nil;
 	topWindow.rootViewController = topController;
 
 	topController.modalPresentationStyle = UIModalPresentationCurrentContext;
-	[topController presentViewController:moreInfoController animated:YES completion:nil];=
+	[topController presentViewController:moreInfoController animated:YES completion:nil];
 
 
 
