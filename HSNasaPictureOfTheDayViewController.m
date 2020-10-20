@@ -1,5 +1,6 @@
 #import "HSNasaPictureOfTheDayViewController.h"
 #import "cutils.h"
+#import <notify.h>
 #define log Log
 
 static NSString* apiKey = nil;
@@ -32,10 +33,10 @@ static NSDictionary* apidict = nil;
 		lockVar = 1;
 		imgurl = [self getCurrentAPOD];
 		Log([[imgurl absoluteString] UTF8String]);
-		Log("\nIhavebeeninvoked\n");
+		Log("\nIMGURL has been validated as above\n");
 		
 		if (imgurl == nil) {
-			Log("\nnullimgurl\n");
+			Log("IMGURL is null\n");
 		}
 
 		else {
@@ -50,8 +51,7 @@ static NSDictionary* apidict = nil;
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRecieveNotification:) name:@"sendNotificationToApod" object:nil];
 	//[NSTimer scheduledTimerWithTimeInterval:7200.0 target:self selector:@selector(updateImage) userInfo:nil repeats:YES];
-	
-	Log("View did load\n");
+
 }
 
 -(void)updateImage {
@@ -130,12 +130,12 @@ static NSDictionary* apidict = nil;
 
 	if (apiKey == nil || [apiKey length] == 0) {
 		url = [NSURL URLWithString:@"https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"];
-		log("nil apikey\n");
+		log("APIKey is nil - defaults to DEMO-KEY\n");
 	}
 
 	else {
 		url = [NSURL URLWithString: [NSString stringWithFormat:@"https://api.nasa.gov/planetary/apod?api_key=%@", apiKey]];
-		log("\n URL used in getAPODJson: ");
+		log("URL used in getAPODJson: ");
 		log([[url absoluteString] UTF8String]);
 	}
 

@@ -3,6 +3,8 @@
 #import "HSNasaPictureOfTheDayViewController.h"
 #import <stdio.h>
 #import "cutils.h"
+#import <UIKit/UIWindow+Private.h>
+#import <notify.h>
 
 OBWelcomeController* moreInfoController = nil;
 UIWindow* topWindow = nil;
@@ -24,7 +26,7 @@ UIWindow* topWindow = nil;
 	NSDictionary* apodDict = nil;
 
 	if ([HSNasaPictureOfTheDayViewController getAPIDictionary] == nil) {
-		Log("nodict\n");
+		Log("showInfo failed due to lack of dict\n");
 	}
 
 	else {
@@ -49,13 +51,16 @@ UIWindow* topWindow = nil;
 
 	UIViewController* topController = [[UIViewController alloc] init];
 	topWindow.rootViewController = topController;
+
 	topController.modalPresentationStyle = UIModalPresentationCurrentContext;
-	[topController presentViewController:moreInfoController animated:YES completion:nil];
+	[topController presentViewController:moreInfoController animated:YES completion:nil];=
+
+
 
 }	
 
 -(void)dismissMyView {
-
+	Log("dismissMyView was called\n");
 	[moreInfoController dismissViewControllerAnimated:YES completion:nil];
 	topWindow = nil;
 }
