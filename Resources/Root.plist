@@ -47,6 +47,20 @@
 		</dict>
 
 		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>key</key>
+			<string>makeLarge</string>
+			<key>label</key>
+			<string>Full Screen</string>
+		</dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+
+		<dict>
 			<key>action</key>
 			<string>showInfo</string>
 			<key>cell</key>

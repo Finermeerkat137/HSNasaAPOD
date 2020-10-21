@@ -206,28 +206,29 @@ static NSDictionary* apidict = nil;
 }
 
 -(BOOL)isAccessoryTypeEnabled:(AccessoryType)accessoryType {
-	
+	int rows = [widgetOptions[@"makeLarge"] boolValue] ? 3 : 1;
 	if (accessoryType == AccessoryTypeExpand) {
-		HSWidgetSize finalExpandedSize = HSWidgetSizeAdd(self.widgetFrame.size, 1, 2);
+		HSWidgetSize finalExpandedSize = HSWidgetSizeAdd(self.widgetFrame.size, rows, 2);
 		return [self containsSpaceToExpandOrShrinkToWidgetSize:finalExpandedSize];
 	} 
 
 	else if (accessoryType == AccessoryTypeShrink) {
-		return self.widgetFrame.size.numRows > 1 && self.widgetFrame.size.numCols > 2;
+		return self.widgetFrame.size.numRows > rows && self.widgetFrame.size.numCols > 2;
 	}
 
 	return [super isAccessoryTypeEnabled:accessoryType];
 }
 
 -(void)accessoryTypeTapped:(AccessoryType)accessoryType {
+	int rows = [widgetOptions[@"makeLarge"] boolValue] ? 3 : 1;
 
 	if (accessoryType == AccessoryTypeExpand) {
-		HSWidgetSize finalExpandSize = HSWidgetSizeAdd(self.widgetFrame.size, 1, 2);
+		HSWidgetSize finalExpandSize = HSWidgetSizeAdd(self.widgetFrame.size, rows, 2);
 		[self updateForExpandOrShrinkToWidgetSize:finalExpandSize];
 	}
 
 	else if (accessoryType == AccessoryTypeShrink) {
-		HSWidgetSize finalShrinkSize = HSWidgetSizeAdd(self.widgetFrame.size, -1, -2);
+		HSWidgetSize finalShrinkSize = HSWidgetSizeAdd(self.widgetFrame.size, -rows, -2);
 		[self updateForExpandOrShrinkToWidgetSize:finalShrinkSize];
 	}
 }
