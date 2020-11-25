@@ -3,7 +3,7 @@
 @interface HSNasaPictureOfTheDayViewController : HSWidgetViewController
 @property (nonatomic, strong) UIImageView* square;
 -(void)getImage:(NSURL*)url;
--(BOOL)checkIfUp:(NSURL*)URL;
+//-(BOOL)checkIfUp:(NSURL*)URL;
 -(NSURL*)getCurrentAPOD;
 -(BOOL)hasAPODChanged;
 -(void)updateImage;

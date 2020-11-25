@@ -1,9 +1,8 @@
 #import "HSNasaPictureOfTheDayViewController.h"
-#import "Reachability.h"
 #import "cutils.h"
 #import <notify.h>
 #import <SystemConfiguration/SystemConfiguration.h>
-
+#import <libsunflsks/Network.h>
 #define log Log
 
 static NSString* apiKey = nil;
@@ -32,7 +31,7 @@ static NSDictionary* apidict = nil;
     date = [[NSString alloc] init];
 	apiKey = [widgetOptions[@"APIKey"] stringValue ];
 
-	if ([self checkIfUp: nasaurl] == TRUE) {
+	if ([Network checkIfUp: nasaurl] == TRUE) {
 		lockVar = 1;
 		imgurl = [self getCurrentAPOD];
 		Log([[imgurl absoluteString] UTF8String]);
@@ -59,7 +58,7 @@ static NSDictionary* apidict = nil;
 
 -(void)updateImage {
 
-	if ([self checkIfUp: [NSURL URLWithString:@"http://nasa.gov"]] == TRUE) {
+	if ([Network checkIfUp: [NSURL URLWithString:@"http://nasa.gov"]] == TRUE) {
         if ((lockVar == 0) && ([self hasAPODChanged] == TRUE)) {
 	        NSURL* imgurl = [self getCurrentAPOD];
 			if (imgurl != nil) {
@@ -90,7 +89,7 @@ static NSDictionary* apidict = nil;
 		});
 	});
 }
-
+/*
 -(BOOL)checkIfUp:(NSURL*)URL {
 	Reachability* reachability = [Reachability reachabilityForInternetConnection];
 	NetworkStatus networkStatus = [reachability currentReachabilityStatus];
@@ -112,7 +111,7 @@ static NSDictionary* apidict = nil;
 		return FALSE;
 	}
 }		
-
+*/
 -(BOOL)hasAPODChanged {
 
 	NSDictionary* dict = [self getAPODJson];
