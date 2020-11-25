@@ -1,6 +1,9 @@
 #import "HSNasaPictureOfTheDayViewController.h"
+#import "Reachability.h"
 #import "cutils.h"
 #import <notify.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+
 #define log Log
 
 static NSString* apiKey = nil;
@@ -89,6 +92,12 @@ static NSDictionary* apidict = nil;
 }
 
 -(BOOL)checkIfUp:(NSURL*)URL {
+	Reachability* reachability = [Reachability reachabilityForInternetConnection];
+	NetworkStatus networkStatus = [reachability currentReachabilityStatus];
+
+	if (networkStatus == NotReachable) {
+		return FALSE;
+	}
 
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:4];
 	[request setHTTPMethod: @"HEAD"];
