@@ -31,7 +31,7 @@ static NSDictionary* apidict = nil;
     date = [[NSString alloc] init];
 	apiKey = [widgetOptions[@"APIKey"] stringValue ];
 
-	if ([Network checkIfUp: nasaurl] == TRUE) {
+	if ([SunflsksNetwork checkIfUp: nasaurl] == TRUE) {
 		lockVar = 1;
 		imgurl = [self getCurrentAPOD];
 		Log([[imgurl absoluteString] UTF8String]);
@@ -58,7 +58,7 @@ static NSDictionary* apidict = nil;
 
 -(void)updateImage {
 
-	if ([Network checkIfUp: [NSURL URLWithString:@"http://nasa.gov"]] == TRUE) {
+	if ([SunflsksNetwork checkIfUp: [NSURL URLWithString:@"http://nasa.gov"]] == TRUE) {
         if ((lockVar == 0) && ([self hasAPODChanged] == TRUE)) {
 	        NSURL* imgurl = [self getCurrentAPOD];
 			if (imgurl != nil) {
