@@ -6,4 +6,5 @@
 -(void)dismissMyView;
 -(void)sendNotification;
 -(void)goToAPODURL;
+-(void)saveAPODToPhotos;
 @end

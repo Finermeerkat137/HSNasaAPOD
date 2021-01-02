@@ -11,5 +11,6 @@
 -(NSURL*)getYTThumbnail:(NSURL*)YTURL;
 +(NSDictionary*)getAPIDictionary;
 -(void)didRecieveNotification:(NSNotification*)notification;
++(NSURL*)getAPODImageURL;
 @end
 

@@ -6,9 +6,11 @@
 #define log Log
 
 static NSString* apiKey = nil;
-NSString* date = nil;
-int lockVar = 0;
+static NSString* date = nil;
+static int lockVar = 0;
 static NSDictionary* apidict = nil;
+static NSURL* globalImageURL = nil;
+
 @implementation HSNasaPictureOfTheDayViewController
 
 -(void)viewDidLoad {
@@ -205,6 +207,8 @@ static NSDictionary* apidict = nil;
 		}
 	}
 
+	// TODO: Just make imageURL itself a global variable
+	globalImageURL = imageURL;
 	return imageURL;
 }
 
@@ -271,6 +275,10 @@ static NSDictionary* apidict = nil;
 	NSDictionary* dict = [NSJSONSerialization JSONObjectWithData: data options:kNilOptions error:nil];
 
 	return [NSURL URLWithString: [dict objectForKey:@"thumbnail_url"]];
+}
+
++(NSURL*)getAPODImageURL {
+	return globalImageURL;
 }
 
 +(NSDictionary*)getAPIDictionary {

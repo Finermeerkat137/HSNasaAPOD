@@ -88,5 +88,36 @@ UIWindow* topWindow = nil;
 	];
 }
 
+-(void)saveAPODToPhotos {
+	topWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+	topWindow.windowLevel = UIWindowLevelAlert + 1;
+	topWindow.hidden = NO;
+
+	UIViewController* topController = [[UIViewController alloc] init];
+	topWindow.rootViewController = topController;
+
+	UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Downloading image" message:nil preferredStyle:UIAlertControllerStyleAlert];
+	[topController presentViewController:alert animated:YES completion:^void(void) {
+		NSURL* imageURL = [HSNasaPictureOfTheDayViewController getAPODImageURL];
+		__block UIImage* image = nil;
+
+		if (![[imageURL scheme] length]) {
+			imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", [imageURL absoluteString]]];
+		}
+
+		NSData* data = [NSData dataWithContentsOfURL:imageURL];
+		image = [UIImage imageWithData:data];
+
+
+		if (image) {
+			UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+		}
+	}];
+
+
+	[topController dismissViewControllerAnimated:YES completion:nil];
+	topWindow = nil;
+}
+
 @end
 
