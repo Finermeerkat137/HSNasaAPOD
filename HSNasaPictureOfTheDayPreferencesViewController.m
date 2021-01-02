@@ -80,5 +80,13 @@ UIWindow* topWindow = nil;
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"sendNotificationToApod" object:self];
 }
 
+-(void)goToAPODURL {
+	[[UIApplication sharedApplication] 
+		openURL:[NSURL URLWithString:@"https://apod.nasa.gov"]
+		options:@{}
+		completionHandler:nil
+	];
+}
+
 @end
 

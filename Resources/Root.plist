@@ -70,6 +70,15 @@
 		</dict>
 
 		<dict>
+			<key>action</key>
+			<string>goToAPODURL</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Go To APOD</string>
+		</dict>
+
+		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
 			<key>footerText</key>

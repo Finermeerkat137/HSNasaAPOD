@@ -5,4 +5,5 @@
 -(void)showInfo;
 -(void)dismissMyView;
 -(void)sendNotification;
+-(void)goToAPODURL;
 @end
